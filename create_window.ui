@@ -17,22 +17,6 @@
    <iconset resource="resources.qrc">
     <normaloff>:/ACG.ico</normaloff>:/ACG.ico</iconset>
   </property>
-  <widget class="QDialogButtonBox" name="btnbox">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>500</y>
-     <width>631</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-   <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-   </property>
-  </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
@@ -43,140 +27,12 @@
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0,0,0,0,0,0,0,0">
-    <item row="10" column="3" colspan="2">
-     <widget class="QPushButton" name="btn_save">
-      <property name="text">
-       <string>Save Configuration</string>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="1" colspan="3">
-     <widget class="QLineEdit" name="le_namespace"/>
-    </item>
-    <item row="5" column="7">
-     <widget class="QComboBox" name="cmd_ssl"/>
-    </item>
-    <item row="2" column="3" colspan="5">
-     <widget class="QLineEdit" name="le_address"/>
-    </item>
-    <item row="0" column="2">
-     <spacer name="horizontalSpacer_3">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="2" column="0" rowspan="3">
-     <spacer name="verticalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="4" column="1">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>HTTP Port Number</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="3" colspan="2">
-     <widget class="QLineEdit" name="le_instance"/>
-    </item>
-    <item row="3" column="1">
-     <spacer name="verticalSpacer_5">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="5" column="1">
-     <widget class="QLineEdit" name="le_port"/>
-    </item>
     <item row="0" column="1">
      <widget class="QLabel" name="label">
       <property name="text">
        <string>IBM Cloud</string>
       </property>
      </widget>
-    </item>
-    <item row="8" column="1" colspan="3">
-     <widget class="QLabel" name="label_6">
-      <property name="text">
-       <string>CAM Namespace ID</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="4" colspan="4">
-     <widget class="QLabel" name="label_7">
-      <property name="text">
-       <string>SSO Gateway</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="2">
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="9" column="4" colspan="4">
-     <widget class="QLineEdit" name="le_gateway"/>
-    </item>
-    <item row="4" column="3">
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>Instance Name</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="3" colspan="5">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>Address</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="1">
-     <spacer name="verticalSpacer_6">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="2" column="1">
-     <widget class="QComboBox" name="cmb_cloud"/>
     </item>
     <item row="10" column="7">
      <spacer name="horizontalSpacer_4">
@@ -191,21 +47,41 @@
       </property>
      </spacer>
     </item>
-    <item row="10" column="1">
-     <spacer name="verticalSpacer_7">
+    <item row="9" column="4" colspan="4">
+     <widget class="QLineEdit" name="le_gateway"/>
+    </item>
+    <item row="0" column="3" colspan="5">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Address</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="6">
+     <spacer name="horizontalSpacer_2">
       <property name="orientation">
-       <enum>Qt::Vertical</enum>
+       <enum>Qt::Horizontal</enum>
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>20</width>
-        <height>40</height>
+        <width>40</width>
+        <height>20</height>
        </size>
       </property>
      </spacer>
     </item>
-    <item row="4" column="6">
-     <spacer name="horizontalSpacer_2">
+    <item row="4" column="1">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>HTTP Port Number</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QComboBox" name="cmb_cloud"/>
+    </item>
+    <item row="0" column="2">
+     <spacer name="horizontalSpacer_3">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -224,6 +100,29 @@
       </property>
      </widget>
     </item>
+    <item row="9" column="1" colspan="3">
+     <widget class="QLineEdit" name="le_namespace"/>
+    </item>
+    <item row="5" column="3" colspan="2">
+     <widget class="QLineEdit" name="le_instance"/>
+    </item>
+    <item row="8" column="1" colspan="3">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>CAM Namespace ID</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="7">
+     <widget class="QComboBox" name="cmb_ssl"/>
+    </item>
+    <item row="8" column="4" colspan="4">
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>SSO Gateway</string>
+      </property>
+     </widget>
+    </item>
     <item row="10" column="6">
      <spacer name="horizontalSpacer_5">
       <property name="orientation">
@@ -237,8 +136,60 @@
       </property>
      </spacer>
     </item>
-    <item row="10" column="0">
-     <spacer name="verticalSpacer_4">
+    <item row="4" column="3">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Instance Name</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="3" colspan="5">
+     <widget class="QLineEdit" name="le_address"/>
+    </item>
+    <item row="3" column="1">
+     <spacer name="verticalSpacer_5">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="2" column="0" rowspan="3">
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="le_port"/>
+    </item>
+    <item row="4" column="2">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="6" column="1">
+     <spacer name="verticalSpacer_6">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
@@ -263,9 +214,74 @@
       </property>
      </spacer>
     </item>
+    <item row="10" column="1">
+     <spacer name="verticalSpacer_7">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="10" column="0">
+     <spacer name="verticalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>490</y>
+     <width>641</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="btn_save">
+      <property name="text">
+       <string>Save Configuration</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QDialogButtonBox" name="btnbox">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="standardButtons">
+       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>cmb_cloud</tabstop>
+  <tabstop>le_address</tabstop>
+  <tabstop>le_port</tabstop>
+  <tabstop>le_instance</tabstop>
+  <tabstop>cmb_ssl</tabstop>
+  <tabstop>le_namespace</tabstop>
+  <tabstop>le_gateway</tabstop>
+  <tabstop>btn_save</tabstop>
+ </tabstops>
  <resources>
   <include location="resources.qrc"/>
  </resources>

@@ -128,8 +128,8 @@ class Ui_update_window(object):
         _cloud = str_to_bool(section['cloud'])
         if _cloud:
             self.cmb_cloud.setCurrentText(section['cloud'])
-            self.le_address.setText(str(section['base_url']))
-            self.le_instance.setText(str( self.cmb_cloud.currentText()))
+            self.le_address.setText(str(section['address'][:-len(self.cmb_config.currentText())]))
+            self.le_instance.setText(str(self.cmb_config.currentText()))
         else:
             self.cmb_cloud.setCurrentText(section['cloud'])
             self.le_address.setText(str(section['address']))
@@ -161,7 +161,40 @@ class Ui_update_window(object):
         self.le_gateway.setText('')
 
     def save_config(self) -> None:
-        pass
+        _cloud = str(self.cmb_cloud.currentText())
+        _instance = self.le_instance.text()
+        if _cloud:
+            _base = self.le_address.text()
+            if _base.endswith('/'):
+                _base = _base[:-1]
+            _base_url = _base + '/tm1/api/' + _instance
+        else:
+            _address = self.le_address.text()
+            _port = int(self.le_port.text())
+            _ssl = str_to_bool(self.cmb_ssl.currentText())
+            _gateway = self.le_gateway.text()
+            _namespace = self.le_namespace.text()
+        if _cloud:
+            _config = {
+                'cloud': True,
+                'address': _base_url
+            }
+        else:
+            _config = {
+                'address': _address,
+                'port': _port,
+                'ssl': _ssl,
+                'namespace': _namespace,
+                'gateway': _gateway
+            }
+        save_config(instance=_instance, config=_config)
+        msg = QMessageBox()
+        msg.setWindowTitle("Success")
+        msg.setText("Configuration Saved")
+        msg.setIcon(QMessageBox.Information)
+        x = msg.exec_()
+        self.reset_form()
+
 
     def retranslateUi(self, update_window):
         _translate = QtCore.QCoreApplication.translate

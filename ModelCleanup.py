@@ -8,7 +8,7 @@ from TM1py import TM1Service
 
 from base_settings import APP_NAME, APPLICATION_PATH
 FILENAME = APP_NAME + '.log'
-LOGFILE = os.path.join(APPLICATION_PATH, FILENAME)
+LOG_FILE = os.path.join(APPLICATION_PATH, FILENAME)
 
 
 def configure_logging() -> None:
@@ -21,10 +21,12 @@ def configure_logging() -> None:
     logging.getLogger().addHandler(logging.StreamHandler(sys.stdout))
 
 
-def perform_clean(file: str, config: dict) -> None:
+def perform_clean(file: str, config: dict, instance: str) -> None:
     configure_logging()
-    start_time = time.perf_counter()
-    logging.info(f"Process started for Instance: '{config[instance]}', using file: '{file}'")
+    start = time.perf_counter()
+    logging.info(f"Process started for Instance: '{instance}', using file: '{file}'")
+    with open(file, 'r') as parser:
+        objects = parser.read().splitlines()
     with TM1Service(**config) as tm1:
         for obj in objects:
             try:

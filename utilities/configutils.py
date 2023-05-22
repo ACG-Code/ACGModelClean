@@ -13,8 +13,9 @@ def get_config(instance: str) -> dict:
 
 def save_config(instance: str, config: dict) -> None:
     conf = ConfigParser()
+    conf.read(CONFIG_FILE)
     conf[instance] = config
-    conf.write(open(CONFIG_FILE, 'a'))
+    conf.write(open(CONFIG_FILE, 'w'))
 
 
 def retrieve_sections() -> list:
