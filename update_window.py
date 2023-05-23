@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import resources_rc
-from utilities import str_to_bool, get_config, save_config, retrieve_sections
+from utilities import str_to_bool, get_config, save_config, retrieve_sections, retrieve_section_for_update
 from PyQt5.QtWidgets import QMessageBox
 
 # Next line to prevent removal of resources_rc during optimization
@@ -124,11 +124,11 @@ class Ui_update_window(object):
         QtCore.QMetaObject.connectSlotsByName(update_window)
 
     def update_screen(self) -> None:
-        section = get_config(self.cmb_config.currentText())
+        section = retrieve_section_for_update(self.cmb_config.currentText())
         _cloud = str_to_bool(section['cloud'])
         if _cloud:
             self.cmb_cloud.setCurrentText(section['cloud'])
-            self.le_address.setText(str(section['address'][:-len(self.cmb_config.currentText())]))
+            self.le_address.setText(str(section['address'][:-(len(self.cmb_config.currentText())+len('/tm1/api'))]))
             self.le_instance.setText(str(self.cmb_config.currentText()))
         else:
             self.cmb_cloud.setCurrentText(section['cloud'])

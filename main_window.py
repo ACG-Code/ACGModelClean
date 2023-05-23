@@ -191,7 +191,7 @@ class Ui_winMain(object):
         password = self.le_password.text()
         section['user'] = username
         section['password'] = password
-        section['session_context'] = APP_NAME
+        # section['session_context'] = APP_NAME
         file = self.le_file.text()
         perform_clean(file=file, config=section, instance=self.cmb_config.currentText())
         msg = QMessageBox()
