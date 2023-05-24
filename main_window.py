@@ -7,6 +7,7 @@ from ModelCleanup import perform_clean
 import resources_rc
 from base_settings import APP_NAME
 from utilities import get_config
+from help_window import Ui_help_window
 from PyQt5.QtWidgets import QMessageBox
 
 # Next line to prevent removal of resources_rc during optimization
@@ -26,6 +27,12 @@ class UpdateDialog(QtWidgets.QDialog, Ui_update_window):
 
 
 class AboutDialog(QtWidgets.QDialog, Ui_about_window):
+    def __init__(self, parent=None):
+        QtWidgets.QDialog.__init__(self, parent)
+        self.setupUi(self)
+
+
+class InstructionDialog(QtWidgets.QDialog, Ui_help_window):
     def __init__(self, parent=None):
         QtWidgets.QDialog.__init__(self, parent)
         self.setupUi(self)
@@ -151,14 +158,18 @@ class Ui_winMain(object):
         self.actionEdit_Configuration.setObjectName("actionEdit_Configuration")
         self.actionAbout = QtWidgets.QAction(winMain)
         self.actionAbout.setObjectName("actionAbout")
+        self.actionInstructions = QtWidgets.QAction(winMain)
+        self.actionInstructions.setObjectName("actionInstructions")
         self.menuSetup.addAction(self.actionCreate_Configuration)
         self.menuSetup.addAction(self.actionEdit_Configuration)
+        self.menuHelp.addAction(self.actionInstructions)
         self.menuHelp.addAction(self.actionAbout)
         self.menubar.addAction(self.menuSetup.menuAction())
         self.menubar.addAction(self.menuHelp.menuAction())
         self.actionCreate_Configuration.triggered.connect(self.open_create)
         self.actionAbout.triggered.connect(self.open_about)
         self.actionEdit_Configuration.triggered.connect(self.open_update)
+        self.actionInstructions.triggered.connect(self.open_instructions)
         self.retranslateUi(winMain)
         sections = retrieve_sections()
         self.cmb_config.addItems(sections)
@@ -183,6 +194,10 @@ class Ui_winMain(object):
         self.cmb_config.clear()
         sections = retrieve_sections()
         self.cmb_config.addItems(sections)
+
+    def open_instructions(self) -> None:
+        dlg = InstructionDialog()
+        dlg.exec_()
 
     def clean_model(self) -> None:
         self.statusbar.showMessage("Cleaning...")
@@ -224,6 +239,7 @@ class Ui_winMain(object):
         self.menuHelp.setTitle(_translate("winMain", "Help"))
         self.actionCreate_Configuration.setText(_translate("winMain", "Create Configuration"))
         self.actionEdit_Configuration.setText(_translate("winMain", "Edit Configuration"))
+        self.actionInstructions.setText(_translate("winMain", "Instructions"))
         self.actionAbout.setText(_translate("winMain", "About"))
 
 
