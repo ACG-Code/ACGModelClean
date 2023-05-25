@@ -1,5 +1,10 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+
+import resources_rc
 from base_settings import APP_NAME, APP_VERSION
+
+# Next line to prevent removal of resources_rc during optimization
+var = resources_rc
 
 
 class Ui_help_window(object):
@@ -72,7 +77,6 @@ class Ui_help_window(object):
         self.label_2.setText(_translate("help_window", "<html><head/><body><p><img src=\"C:/Users/charvey/PycharmProjects/ACGModelClean/acg_logo.jpg\"/></p></body></html>"))
         self.le_appname.setText(_translate("help_window", "TextLabel"))
         self.le_instructions.setText(_translate("help_window", "TextLabel"))
-import resources_rc
 
 
 if __name__ == "__main__":

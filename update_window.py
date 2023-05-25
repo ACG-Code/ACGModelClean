@@ -1,7 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-import resources_rc
-from utilities import str_to_bool, get_config, save_config, retrieve_sections, retrieve_section_for_update
 from PyQt5.QtWidgets import QMessageBox
+
+import resources_rc
+from utilities import str_to_bool, save_config, retrieve_sections, retrieve_section_for_update
 
 # Next line to prevent removal of resources_rc during optimization
 var = resources_rc
