@@ -69,7 +69,7 @@ class Ui_help_window(object):
     def retranslateUi(self, help_window):
         _translate = QtCore.QCoreApplication.translate
         help_window.setWindowTitle(_translate("help_window", "ACG Model Cleanup - Instructions"))
-        self.label_2.setText(_translate("help_window", "<html><head/><body><p><img src=\"acg_logo.jpg\"/></p></body></html>"))
+        self.label_2.setText(_translate("help_window", "<html><head/><body><p><img src=\"C:/Users/charvey/PycharmProjects/ACGModelClean/acg_logo.jpg\"/></p></body></html>"))
         self.le_appname.setText(_translate("help_window", "TextLabel"))
         self.le_instructions.setText(_translate("help_window", "TextLabel"))
 import resources_rc

@@ -1,14 +1,14 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from create_window import Ui_create_window
-from update_window import Ui_update_window
-from about_window import Ui_about_window
-from utilities import retrieve_sections
-from ModelCleanup import perform_clean
-import resources_rc
-from base_settings import APP_NAME
-from utilities import get_config
-from help_window import Ui_help_window
 from PyQt5.QtWidgets import QMessageBox
+
+import resources_rc
+from ModelCleanup import perform_clean
+from about_window import Ui_about_window
+from create_window import Ui_create_window
+from help_window import Ui_help_window
+from update_window import Ui_update_window
+from utilities import get_config
+from utilities import retrieve_sections
 
 # Next line to prevent removal of resources_rc during optimization
 var = resources_rc
