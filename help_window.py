@@ -8,6 +8,9 @@ var = resources_rc
 
 
 class Ui_help_window(object):
+    """
+    Setup and display Help...Instructions screen
+    """
     def setupUi(self, help_window):
         help_window.setObjectName("help_window")
         help_window.resize(768, 549)

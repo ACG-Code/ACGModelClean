@@ -9,6 +9,9 @@ var = resources_rc
 
 
 class Ui_create_window(object):
+    """
+    Setup and display Setup...Create configuration window
+    """
     def setupUi(self, create_window):
         create_window.setObjectName("create_window")
         create_window.resize(666, 538)

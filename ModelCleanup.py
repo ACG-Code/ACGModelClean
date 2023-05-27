@@ -12,6 +12,10 @@ LOG_FILE = os.path.join(APPLICATION_PATH, FILENAME)
 
 
 def configure_logging() -> None:
+    """
+    Setup logging for actions taken
+    :return: None
+    """
     logging.basicConfig(
         filename=LOG_FILE,
         format="%(asctime)s - " + APP_NAME + " - %(levelname)s - %(message)s",
@@ -22,6 +26,13 @@ def configure_logging() -> None:
 
 
 def perform_clean(file: str, config: dict, instance: str) -> None:
+    """
+    Read CSV file and begin working through the items to remove
+    :param file: str filename including path
+    :param config: dict to use for TM1PY
+    :param instance: string representation of server name
+    :return: None
+    """
     configure_logging()
     start = time.perf_counter()
     logging.info(f"Process started for Instance: '{instance}', using file: '{file}'")

@@ -6,6 +6,9 @@ from base_settings import APP_NAME, APP_VERSION
 var = resources_rc
 
 class Ui_about_window(object):
+    """
+    Setup and display Help...About window.  Created using PyQt5
+    """
     def setupUi(self, about_window):
         about_window.setObjectName("about_window")
         about_window.resize(400, 300)

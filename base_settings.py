@@ -1,3 +1,6 @@
+"""
+Base setting control display of application name and version
+"""
 import os
 import sys
 

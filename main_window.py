@@ -15,30 +15,45 @@ var = resources_rc
 
 
 class CreateDialog(QtWidgets.QDialog, Ui_create_window):
+    """
+    Opens dialog window of Create_Window
+    """
     def __init__(self, parent=None):
         QtWidgets.QDialog.__init__(self, parent)
         self.setupUi(self)
 
 
 class UpdateDialog(QtWidgets.QDialog, Ui_update_window):
+    """
+    Opens dialog window of Update_Window
+    """
     def __init__(self, parent=None):
         QtWidgets.QDialog.__init__(self)
         self.setupUi(self)
 
 
 class AboutDialog(QtWidgets.QDialog, Ui_about_window):
+    """
+    opens dialog window of About_Window
+    """
     def __init__(self, parent=None):
         QtWidgets.QDialog.__init__(self, parent)
         self.setupUi(self)
 
 
 class InstructionDialog(QtWidgets.QDialog, Ui_help_window):
+    """
+    Opens dialog of help_window
+    """
     def __init__(self, parent=None):
         QtWidgets.QDialog.__init__(self, parent)
         self.setupUi(self)
 
 
 class Ui_winMain(object):
+    """
+    Convetered UI file to Py using pyuic5
+    """
     def setupUi(self, winMain):
         winMain.setObjectName("winMain")
         winMain.resize(800, 600)
@@ -83,7 +98,7 @@ class Ui_winMain(object):
         self.le_user.setObjectName("le_user")
         self.gridLayout_4.addWidget(self.le_user, 1, 0, 1, 1)
         self.le_password = QtWidgets.QLineEdit(self.gridLayoutWidget_4)
-        self.le_password.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.le_password.setEchoMode(QtWidgets.QLineEdit.PasswordEchoOnEdit)
         self.le_password.setObjectName("le_password")
         self.gridLayout_4.addWidget(self.le_password, 1, 2, 1, 1)
         self.label_2 = QtWidgets.QLabel(self.gridLayoutWidget_4)
@@ -178,6 +193,10 @@ class Ui_winMain(object):
         QtCore.QMetaObject.connectSlotsByName(winMain)
 
     def open_create(self) -> None:
+        """
+        Instantiate and open create_window
+        :return: None
+        """
         dlg = CreateDialog()
         dlg.exec_()
         self.cmb_config.clear()
@@ -185,10 +204,18 @@ class Ui_winMain(object):
         self.cmb_config.addItems(sections)
 
     def open_about(self) -> None:
+        """
+        Instantiate and open about_window
+        :return: None
+        """
         dlg = AboutDialog()
         dlg.exec_()
 
     def open_update(self) -> None:
+        """
+        Instantiate and open update_window
+        :return: NOne
+        """
         dlg = UpdateDialog()
         dlg.exec_()
         self.cmb_config.clear()
@@ -196,10 +223,18 @@ class Ui_winMain(object):
         self.cmb_config.addItems(sections)
 
     def open_instructions(self) -> None:
+        """
+        Instantiate and open help_window
+        :return: None
+        """
         dlg = InstructionDialog()
         dlg.exec_()
 
     def clean_model(self) -> None:
+        """
+        Gather form information call model_cleanup
+        :return: None
+        """
         self.statusbar.showMessage("Cleaning...")
         section = get_config(instance=self.cmb_config.currentText())
         username = self.le_user.text()
@@ -221,10 +256,19 @@ class Ui_winMain(object):
         self.le_file.setText('')
 
     def browse_files(self) -> None:
+        """
+        Open dialog box for file selection
+        :return: NOne
+        """
         filename, _ = QtWidgets.QFileDialog.getOpenFileName(caption="Choose File", directory="", filter="CSV Files (*.csv)")
         self.le_file.setText(filename)
 
     def retranslateUi(self, winMain):
+        """
+        Created using pyuic5
+        :param winMain:
+        :return: None
+        """
         _translate = QtCore.QCoreApplication.translate
         winMain.setWindowTitle(_translate("winMain", "ACG Model Cleanup"))
         self.groupBox.setTitle(_translate("winMain", "Configuration"))
@@ -241,7 +285,6 @@ class Ui_winMain(object):
         self.actionEdit_Configuration.setText(_translate("winMain", "Edit Configuration"))
         self.actionInstructions.setText(_translate("winMain", "Instructions"))
         self.actionAbout.setText(_translate("winMain", "About"))
-
 
 
 if __name__ == "__main__":
