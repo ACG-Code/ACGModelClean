@@ -1,19 +1,13 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from base_settings import  APP_NAME, APP_VERSION
 
-import resources_rc
-from base_settings import APP_NAME, APP_VERSION
-
-var = resources_rc
 
 class Ui_about_window(object):
-    """
-    Setup and display Help...About window.  Created using PyQt5
-    """
     def setupUi(self, about_window):
         about_window.setObjectName("about_window")
         about_window.resize(400, 300)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("ACG.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(":/ACG.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         about_window.setWindowIcon(icon)
         self.gridLayoutWidget = QtWidgets.QWidget(about_window)
         self.gridLayoutWidget.setGeometry(QtCore.QRect(0, 10, 391, 281))
@@ -26,7 +20,7 @@ class Ui_about_window(object):
         self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
         self.le_about = QtWidgets.QLabel(self.gridLayoutWidget)
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
         self.le_about.setFont(font)
@@ -36,13 +30,13 @@ class Ui_about_window(object):
 
         self.retranslateUi(about_window)
         QtCore.QMetaObject.connectSlotsByName(about_window)
-        self.le_about.setText(f"{APP_NAME}\nVersion: {APP_VERSION}\n\n© 2023 Application Consulting Group, Inc.")
 
     def retranslateUi(self, about_window):
         _translate = QtCore.QCoreApplication.translate
         about_window.setWindowTitle(_translate("about_window", "ACG Model Cleanup - About"))
-        self.label.setText(_translate("about_window", "<html><head/><body><p><img src=\"C:/Users/charvey/PycharmProjects/ACGModelClean/acg_logo.jpg\"/></p></body></html>"))
+        self.label.setText(_translate("about_window", "<html><head/><body><p><img src=\":/acg_logo.jpg\"/></p></body></html>"))
         self.le_about.setText(_translate("about_window", "TextLabel"))
+import resources_rc
 
 
 if __name__ == "__main__":
