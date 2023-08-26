@@ -52,8 +52,9 @@ class InstructionDialog(QtWidgets.QDialog, Ui_help_window):
 
 class Ui_winMain(object):
     """
-    Convetered UI file to Py using pyuic5
+    Converted UI file to Py using pyuic5
     """
+
     def setupUi(self, winMain):
         winMain.setObjectName("winMain")
         winMain.resize(800, 600)
@@ -235,7 +236,9 @@ class Ui_winMain(object):
         Gather form information call model_cleanup
         :return: None
         """
-        self.statusbar.showMessage("Cleaning...")
+        self.statusbar.showMessage("Cleaning.  Please wait...")
+        QtWidgets.QApplication.processEvents()
+        QtWidgets.QApplication.setOverrideCursor(QtCore.Qt.WaitCursor)
         section = get_config(instance=self.cmb_config.currentText())
         username = self.le_user.text()
         password = self.le_password.text()
@@ -250,6 +253,8 @@ class Ui_winMain(object):
         msg.setIcon(QMessageBox.Information)
         x = msg.exec_()
         self.statusbar.showMessage("Ready")
+        QtWidgets.QApplication.restoreOverrideCursor()
+        QtWidgets.QApplication.processEvents()
         self.cmb_config.setCurrentText('')
         self.le_user.setText('')
         self.le_password.setText('')
